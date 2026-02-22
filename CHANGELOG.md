@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.1 - 2026-02-22
+
+### Changed
+
+- Improved UI clarity regarding the project time filter (`--max-age`)
+- Added explicit "Filter" status to the header
+- Enhanced "No sessions found" message with helpful tips for adjusting filters
+
 ## 1.1.0 - 2026-02-22
 
 ### Added

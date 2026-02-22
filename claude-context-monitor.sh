@@ -191,10 +191,11 @@ print(f'{last_total}|{max_total}|{msg_count}|{1 if compacted_since_last else 0}|
     if ! $QUIET; then
       echo "═══ Claude Code Context Monitor ═══"
       echo "Context window: ${CONTEXT_K}K tokens  |  Red Alert: ${RED_AT}%  |  Warning: ${WARN_AT}%"
+      printf "Filter: Sessions modified in last %sh" "$MAX_AGE_HOURS"
       if $WATCH; then
-        echo "Refreshing every ${WATCH_INTERVAL}s  |  $(date '+%H:%M:%S')  |  Ctrl-C to exit"
+        printf "  |  Refreshing every ${WATCH_INTERVAL}s  |  $(date '+%H:%M:%S')"
       fi
-      echo ""
+      echo -e "\n"
     fi
     cat "$TMPFILE.lines"
 
@@ -205,6 +206,7 @@ print(f'{last_total}|{max_total}|{msg_count}|{1 if compacted_since_last else 0}|
   elif ! $QUIET; then
     echo "═══ Claude Code Context Monitor ═══"
     echo "No active sessions found (modified within ${MAX_AGE_HOURS}h)"
+    echo "Try increasing --max-age to see older projects."
   fi
 
   # macOS notification for warnings
