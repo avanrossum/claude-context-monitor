@@ -35,6 +35,7 @@ Tip: Run /compact in Claude Code before auto-compaction to preserve memory
 
 Status indicators:
 - **🟢 OK** — Under the warning threshold
+- **🟢 Compacted** — Session was recently compacted (stale token counts hidden)
 - **🟡 Getting close** — Above warning threshold (default: 70%)
 - **🔴 COMPACT NOW** — Above red alert threshold (default: 85%)
 
@@ -49,6 +50,7 @@ Status indicators:
 | `--quiet` | off | Only produce output if warnings are found |
 | `--notify` | off | Show a macOS alert when warnings are found |
 | `--alert-life N` | `5` | Number of seconds to show the macOS alert |
+| `--watch [N]` | `5` | Live-updating display, refresh every N seconds |
 
 ### Examples
 
@@ -61,6 +63,12 @@ Status indicators:
 
 # macOS alert when sessions are at risk (shows for 10 seconds)
 ./claude-context-monitor.sh --quiet --notify --alert-life 10
+
+# Live dashboard, refreshing every 5 seconds (Ctrl-C to exit)
+./claude-context-monitor.sh --watch
+
+# Live dashboard with a 10-second refresh interval
+./claude-context-monitor.sh --watch 10
 
 # Future-proof: if Claude Code increases the context window
 ./claude-context-monitor.sh --context 500
