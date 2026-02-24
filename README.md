@@ -141,3 +141,7 @@ The goal of this tool is simple: give you a heads-up so you can compact on your 
 ## License
 
 MIT
+
+## About
+
+Built by [Alex van Rossum](https://mipyip.com).
